@@ -46,7 +46,7 @@
           var scrollHeight =
               document.documentElement.scrollHeight || document.body.scrollHeight;
           console.log("scrollTop:"+scrollTop+";windowHeight="+windowHeight+";scrollHeight="+scrollHeight)
-          if (ceil(scrollTop + windowHeight) == scrollHeight) {
+          if (Math.ceil(scrollTop + windowHeight) == scrollHeight) {
               gotoNextPage()
           }
 
