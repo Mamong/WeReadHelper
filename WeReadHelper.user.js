@@ -45,7 +45,7 @@
                 document.documentElement.clientHeight || document.body.clientHeight; //变量scrollHeight是滚动条的总高度
             let scrollHeight =
                 document.documentElement.scrollHeight || document.body.scrollHeight;
-            if (scrollTop + windowHeight == scrollHeight) {
+            if (Math.ceil(scrollTop + windowHeight) == scrollHeight) {
                 gotoNextPage()
             }
 
