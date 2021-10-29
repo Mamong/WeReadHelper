@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name     微信阅读触底翻页
+// @description 微信阅读助手
 // @author   🐱
 // @version  1
 // @match    https://weread.qq.com/web/reader/*
@@ -45,7 +46,7 @@
           var scrollHeight =
               document.documentElement.scrollHeight || document.body.scrollHeight;
           console.log("scrollTop:"+scrollTop+";windowHeight="+windowHeight+";scrollHeight="+scrollHeight)
-          if (scrollTop + windowHeight == scrollHeight) {
+          if (scrollTop + windowHeight >= scrollHeight + delta) {
               gotoNextPage()
           }
 
