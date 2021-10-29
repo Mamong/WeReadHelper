@@ -11,6 +11,10 @@
 (function () {
     "use strict";
 
+    //顶部双击返回顶部
+    let readerTopBar = document.querySelector(".readerTopBar")
+    readerTopBar.addEventListener("dblclick", scrollToTop);
+
     //判断鼠标滚轮滚动方向
     if (window.addEventListener) {
         console.log("addEventListener")
@@ -31,8 +35,9 @@
         } else if (event.detail) {//FF浏览器使用的是detail,其值为“正负3”
             delta = -event.detail / 3;
         }
-        if (delta)
+        if (delta){
             handle(delta);
+        }
     }
 
     //上下滚动时的具体处理函数
@@ -114,5 +119,9 @@
                 count = 10
             }
         }
+    }
+
+    function scrollToTop() {
+        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     }
 })();
