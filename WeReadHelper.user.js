@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name     微信阅读触底翻页
-// @description 微信阅读助手
+// @name     微信阅读助手
+// @description 鼠标上下滚动翻页
 // @author   🐱
 // @version  1
 // @match    https://weread.qq.com/web/reader/*
