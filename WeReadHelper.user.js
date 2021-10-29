@@ -20,7 +20,7 @@
     //Chrome&IE
     console.log("onmousewheel")
     window.onmousewheel = document.onmousewheel = wheel;
-    
+
     //统一处理滚轮滚动事件
     function wheel(event) {
         var delta = 0;
@@ -89,8 +89,30 @@
                 clientY: 100
             });
             items[index - 1].firstChild.dispatchEvent(evt);
+
+            //滚动到底部
+            scrollToBottom()
         } else {
             console.log("已在第一章")
+        }
+    }
+
+    let count = 10
+    function scrollToBottom() {
+        let button = document.querySelector(".readerFooter_button")
+        if (button) {
+            let windowHeight =
+                document.documentElement.clientHeight || document.body.clientHeight; //变量scrollHeight是滚动条的总高度
+            let scrollHeight =
+                document.documentElement.scrollHeight || document.body.scrollHeight;
+            window.scroll({ top: scrollHeight - windowHeight, left: 0, behavior: 'auto' });
+        } else {
+            count -= 1
+            if (count >= 0) {
+                setTimeout(scrollToBottom, 500)
+            } else {
+                count = 10
+            }
         }
     }
 })();
