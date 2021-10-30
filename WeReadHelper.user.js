@@ -82,10 +82,8 @@
     function gotoPrevPage() {
         console.log("gotoPrevPage")
 
-        let items = Array.from(document.querySelectorAll(".chapterItem"))
-        let cur_item = document.querySelector(".chapterItem.chapterItem_current")
-        let index = items.indexOf(cur_item)
-        if (index > 0) {
+        let prev_item = document.querySelector(".chapterItem.chapterItem_current").previousElementSibling
+        if (prev_item) {
             console.log("前往前一章...")
             var evt = new MouseEvent("click", {
                 bubbles: true,
@@ -93,7 +91,7 @@
                 clientX: 100,
                 clientY: 100
             });
-            items[index - 1].firstChild.dispatchEvent(evt);
+            prev_item.firstChild.dispatchEvent(evt);
 
             //滚动到底部
             scrollToBottom()
