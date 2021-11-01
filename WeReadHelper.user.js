@@ -91,12 +91,23 @@
                 clientX: 100,
                 clientY: 100
             });
+            //屏蔽遮罩动画
+            changeClassName("wr_mask","wr_mask_fake")
             prev_item.firstChild.dispatchEvent(evt);
 
             //滚动到底部
             scrollToBottom()
+            changeClassName("wr_mask_fake","wr_mask")
+            
         } else {
             console.log("已在第一章")
+        }
+    }
+    
+    function changeClassName(from,to){
+        let elem = document.querySelector(`.${from}`)
+        if(elem){
+            elem.setAttribute("class",to)
         }
     }
 
